@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import { HealthService } from '../services/services';
+import { HealthService } from '../application/services/services';
 
 export default class Server{
     private app: Koa;
@@ -19,10 +19,9 @@ export default class Server{
         }
     }
     private middlewares(): void{
-
+        this.app.use(HealthService.getServices());
     }
     private services(): void{
-        this.app.use()
     }
     start(){
         this.middlewares();
