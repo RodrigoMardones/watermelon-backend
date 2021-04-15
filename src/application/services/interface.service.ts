@@ -1,4 +1,4 @@
-import Router, { IMiddleware } from "koa-router";
+import Router from "koa-router";
 
 export default interface InterfaceService{
     router: Router,

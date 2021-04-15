@@ -1,4 +1,4 @@
-export default interface healthInterface{
+export default interface health{
     status: 'UP',
     timestamp: Date | string
 }

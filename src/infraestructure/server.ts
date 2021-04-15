@@ -19,9 +19,10 @@ export default class Server{
         }
     }
     private middlewares(): void{
-        this.app.use(HealthService.getServices());
+        
     }
     private services(): void{
+        this.app.use(HealthService.getServices());
     }
     start(){
         this.middlewares();
