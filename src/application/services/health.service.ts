@@ -10,7 +10,7 @@ class HealthService implements InterfaceService{
         this.health();
     }
     private health():void{
-        this.router.get(this.route, HealthController.health)
+        this.router.get(this.route, HealthController.get)
     }
     public getServices(): IMiddleware{
         return this.router.routes();
