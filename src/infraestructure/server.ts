@@ -1,5 +1,6 @@
 import Koa from 'koa';
-import { HealthService } from '../application/services/services';
+import bodyparser from 'koa-bodyparser';
+import { HealthService, UserService } from '../application/services/services';
 
 export default class Server{
     private app: Koa;
@@ -19,14 +20,15 @@ export default class Server{
         }
     }
     private middlewares(): void{
-        
+        this.app.use(bodyparser());
     }
     private services(): void{
         this.app.use(HealthService.getServices());
+        this.app.use(UserService.getServices());
     }
     start(){
         this.middlewares();
         this.services();
-        this.app.listen(this.port, () => console.log("iniciando servidor"));
+        this.app.listen(this.port, () => console.log(`iniciando servicio en puerto: ${this.port}`));
     }
 }

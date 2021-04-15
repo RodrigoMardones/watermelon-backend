@@ -1,7 +1,9 @@
-import Router from "koa-router";
+import Router, { IMiddleware } from "koa-router";
 
 export default interface Service{
     router: Router,
     route: string,
-    getServices: Function,
+    getServices: () => IMiddleware,
+    registerServices: () => void
+
 }

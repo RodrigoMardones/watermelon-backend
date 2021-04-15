@@ -7,9 +7,9 @@ class HealthService implements Service{
     public route: string  = '/health'
     constructor(){
         this.router = new Router();
-        this.health();
+        this.registerServices();
     }
-    private health():void{
+    registerServices():void{
         this.router.get(this.route, HealthController.get)
     }
     public getServices(): IMiddleware{
