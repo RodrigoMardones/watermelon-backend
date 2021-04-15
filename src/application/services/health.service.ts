@@ -1,8 +1,8 @@
 import Router, { IMiddleware } from 'koa-router';
 import HealthController from '../controllers/health.controller';
-import InterfaceService from './interface.service';
+import Service from './interface.service';
 
-class HealthService implements InterfaceService{
+class HealthService implements Service{
     public router: Router;
     public route: string  = '/health'
     constructor(){
