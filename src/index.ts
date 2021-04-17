@@ -1,8 +1,11 @@
 import Server from './infraestructure/server'
+import EnvironmentManager from './infraestructure/EnvironmentManager'
 
-const port = 3000
 const main = async () => {
-    const server = Server.init(port);
+
+    const environment = new EnvironmentManager('development');
+    const secrets = environment.getEnv();
+    const server = Server.init(secrets.PORT);
     server.start();
 }
 

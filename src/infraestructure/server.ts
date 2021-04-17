@@ -1,5 +1,7 @@
 import Koa from 'koa';
 import bodyparser from 'koa-bodyparser';
+import cors from '@koa/cors';
+import morgan from 'koa-morgan';
 import { HealthService, UserService } from '../application/services/services';
 
 export default class Server{
@@ -21,6 +23,8 @@ export default class Server{
     }
     private middlewares(): void{
         this.app.use(bodyparser());
+        this.app.use(cors());
+        this.app.use(morgan('dev'));
     }
     private services(): void{
         this.app.use(HealthService.getServices());
