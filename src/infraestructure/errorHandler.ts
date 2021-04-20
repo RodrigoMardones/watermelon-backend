@@ -8,5 +8,4 @@ export default class ErrorHandler extends Error{
         this.httpCode = httpCode;
         this.message = message;
     }
-    
 }
